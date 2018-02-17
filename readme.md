@@ -43,17 +43,17 @@ You can pass options to `awesome-typescript-loader` as a first argument
 
 ```js
 // next.config.js
-const withAwesomeTypescript = require('next-awesome-typescript')
+const withAwesomeTypescript = require('next-awesome-typescript');
 
 const options = {
   useCheckerPlugin: true,
   loaderOptions: {
     transpileOnly: false,
-    errorsAsWarnings: true,
-  },
-}
+    errorsAsWarnings: true
+  }
+};
 
-module.exports = withAwesomeTypescript(options)
+module.exports = withAwesomeTypescript(options);
 ```
 
 Optionally you can add your custom Next.js configuration as second parameter
