@@ -1,0 +1,20 @@
+{
+  "name": "next-awesome-typescript-use-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^5.0.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "next-awesome-typescript": "^0.0.1",
+    "typescript": "^2.7.2"
+  }
+}
