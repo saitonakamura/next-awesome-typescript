@@ -5,13 +5,13 @@ Use [Typescript](https://www.typescriptlang.org/) with [Next.js](https://github.
 ## Installation
 
 ```
-npm install --save next-awesome-typescript typescript
+npm install --save-dev next-awesome-typescript typescript
 ```
 
 or
 
 ```
-yarn add next-awesome-typescript typescript
+yarn add --dev next-awesome-typescript typescript
 ```
 
 ## Usage
@@ -20,11 +20,11 @@ Create a `next.config.js` in your project
 
 ```js
 // next.config.js
-const withTypescript = require("next-awesome-typescript");
+const withAwesomeTypescript = require("next-awesome-typescript");
 module.exports = withAwesomeTypescript();
 ```
 
-Create a `tsconfig.json` in your project
+Minimal `tsconfig.json` is necessary. The reason for it is that babel will be applied after typescript, and will take care of modules, jsx and stuff.
 
 ```json
 {
@@ -33,18 +33,8 @@ Create a `tsconfig.json` in your project
     "target": "esnext",
     "module": "esnext",
     "jsx": "preserve",
-    "allowJs": true,
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "removeComments": false,
-    "preserveConstEnums": true,
-    "sourceMap": true,
-    "skipLibCheck": true,
-    "baseUrl": ".",
-    "typeRoots": ["./node_modules/@types"],
-    "lib": ["dom", "es2015", "es2016"]
+    "sourceMap": true
   }
 }
 ```
@@ -53,17 +43,17 @@ You can pass options to `awesome-typescript-loader` as a first argument
 
 ```js
 // next.config.js
-const withAwesomeTypescript = require("next-awesome-typescript");
+const withAwesomeTypescript = require('next-awesome-typescript')
 
 const options = {
   useCheckerPlugin: true,
   loaderOptions: {
     transpileOnly: false,
-    errorsAsWarnings: true
-  }
-};
+    errorsAsWarnings: true,
+  },
+}
 
-module.exports = withAwesomeTypescript(options);
+module.exports = withAwesomeTypescript(options)
 ```
 
 Optionally you can add your custom Next.js configuration as second parameter
