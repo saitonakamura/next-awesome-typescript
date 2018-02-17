@@ -1,8 +1,7 @@
 {
   "name": "next-awesome-typescript",
   "version": "0.0.1",
-  "description":
-    "Plugin for Next.js v5 to use typescript with awesome-typescript-loader",
+  "description": "Plugin for Next.js v5 to use typescript with awesome-typescript-loader",
   "main": "index.js",
   "scripts": {},
   "dependencies": {
@@ -15,9 +14,12 @@
     "type": "git",
     "url": "git+https://github.com/saitonakamura/next-awesome-typescript.git"
   },
-  "keywords": ["next", "typescript", "awesome-typescript-loader"],
-  "author":
-    "Mikhail Bashurov <michael.bashurov@gmail.com> (http://github.com/saitonakamura)",
+  "keywords": [
+    "next",
+    "typescript",
+    "awesome-typescript-loader"
+  ],
+  "author": "Mikhail Bashurov <michael.bashurov@gmail.com> (http://github.com/saitonakamura)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/saitonakamura/next-awesome-typescript/issues"
