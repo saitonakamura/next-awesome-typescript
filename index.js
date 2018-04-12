@@ -1,6 +1,19 @@
 const { CheckerPlugin } = require("awesome-typescript-loader");
+const path = require("path");
 
 module.exports = (awesomeTypescriptOptions = {}, nextConfig = {}) => {
+  if (!nextConfig.pageExtensions) {
+    nextConfig.pageExtensions = ["jsx", "js"];
+  }
+
+  if (nextConfig.pageExtensions.indexOf("ts") === -1) {
+    nextConfig.pageExtensions.unshift("ts");
+  }
+
+  if (nextConfig.pageExtensions.indexOf("tsx") === -1) {
+    nextConfig.pageExtensions.unshift("tsx");
+  }
+
   return Object.assign({}, nextConfig, {
     webpack(config, options) {
       if (!options.defaultLoaders) {
@@ -9,7 +22,7 @@ module.exports = (awesomeTypescriptOptions = {}, nextConfig = {}) => {
         );
       }
 
-      const { dir, defaultLoaders } = options;
+      const { dir, defaultLoaders, dev, isServer } = options;
       const { useCheckerPlugin, loaderOptions } = awesomeTypescriptOptions;
 
       // cacheDirectory option is unavailable in case of useBabel option
@@ -19,8 +32,20 @@ module.exports = (awesomeTypescriptOptions = {}, nextConfig = {}) => {
       ]);
 
       config.resolve.extensions.push(".ts", ".tsx");
+
+      if (dev && !isServer) {
+        config.module.rules.push({
+          test: /\.tsx?$/,
+          loader: "hot-self-accept-loader",
+          include: [path.join(dir, "pages")],
+          options: {
+            extensions: /\.(ts|tsx)$/,
+          },
+        });
+      }
+
       config.module.rules.push({
-        test: /\.+(ts|tsx)$/,
+        test: /\.tsx?$/,
         include: [dir],
         exclude: /node_modules/,
         use: [
