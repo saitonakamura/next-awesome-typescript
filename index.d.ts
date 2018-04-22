@@ -1,14 +1,17 @@
-import * as AwesomeTypescriptLoaderInterfaces from 'awesome-typescript-loader/dist/interfaces'
+import * as AwesomeTypescriptLoaderInterfaces from "awesome-typescript-loader/dist/interfaces";
 
-export type AwesomeTypescriptOptons = {
-  useCheckerPlugin?: boolean
-  loaderOptions?: AwesomeTypescriptLoaderInterfaces.LoaderConfig
+type NextConfiguration = any;
+
+export = withAwesomeTypescript;
+
+declare function withAwesomeTypescript(
+  awesomeTypescriptOptons?: withAwesomeTypescript.AwesomeTypescriptOptions,
+  nextConfiguration?: NextConfiguration
+): NextConfiguration;
+
+declare namespace withAwesomeTypescript {
+  interface AwesomeTypescriptOptions {
+    useCheckerPlugin?: boolean;
+    loaderOptions?: AwesomeTypescriptLoaderInterfaces.LoaderConfig;
+  }
 }
-
-type NextConfiguration = any
-
-export type WithAwesomeTypescript = (awesomeTypescriptOptons?: AwesomeTypescriptOptons, nextConfiguration?: NextConfiguration) => NextConfiguration
-
-declare const withAwesomeTypescript: WithAwesomeTypescript
-
-export default withAwesomeTypescript
