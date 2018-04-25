@@ -1,6 +1,6 @@
 {
   "name": "next-awesome-typescript",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description":
     "Plugin for Next.js v5 to use typescript with awesome-typescript-loader",
   "main": "index.js",
