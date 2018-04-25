@@ -1,5 +1,11 @@
 # Next.js + Typescript + Awesome typescript loader
 
+<p>
+  <a href="https://www.npmjs.com/package/next-awesome-typescript">
+    <img alt="npm" src="https://img.shields.io/npm/v/next-awesome-typescript.svg?style=flat-square" />
+  </a>
+</p>
+
 Use [Typescript](https://www.typescriptlang.org/) with [Next.js](https://github.com/zeit/next.js) with [Awesome typescipt loader](https://github.com/s-panferov/awesome-typescript-loader)
 
 ## Installation
