@@ -23,7 +23,8 @@ module.exports = (nextConfig = {}) => {
       }
 
       const { dir, defaultLoaders, dev, isServer } = options;
-      const { useCheckerPlugin, loaderOptions } = nextConfig.awesomeTypescriptOptions;
+      const { useCheckerPlugin, loaderOptions } =
+        nextConfig.awesomeTypescriptOptions || {};
 
       // cacheDirectory option is unavailable in case of useBabel option
       // use useCache option of awesome-typescript-loader instead
@@ -35,17 +36,17 @@ module.exports = (nextConfig = {}) => {
 
       if (dev && !isServer) {
         config.module.rules.push({
-          test: /\.(ts|tsx)?$/,
+          test: /\.tsx?$/,
           loader: "hot-self-accept-loader",
           include: [path.join(dir, "pages")],
           options: {
-            extensions: /\.(ts|tsx)$/,
+            extensions: /\.tsx?$/,
           },
         });
       }
 
       config.module.rules.push({
-        test: /\.(ts|tsx)?$/,
+        test: /\.tsx?$/,
         include: [dir],
         exclude: /node_modules/,
         use: [

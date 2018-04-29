@@ -45,20 +45,22 @@ Minimal `tsconfig.json` is necessary. The reason for it is that babel will be ap
 }
 ```
 
-You can pass options to `awesome-typescript-loader` as a first argument
+You can pass options to `awesome-typescript-loader` as a field of nextConfig
 
 ```js
 // next.config.js
 const withAwesomeTypescript = require("next-awesome-typescript");
 
-const awesomeTypescriptOptions = {
-  useCheckerPlugin: true,
-  loaderOptions: {
-    transpileOnly: false,
+const nextConfig = {
+  awesomeTypescriptOptions: {
+    useCheckerPlugin: true,
+    loaderOptions: {
+      transpileOnly: false,
+    },
   },
 };
 
-module.exports = withAwesomeTypescript(awesomeTypescriptOptions);
+module.exports = withAwesomeTypescript(nextConfig);
 ```
 
 Optionally you can add your custom Next.js configuration as a parameter
@@ -67,33 +69,35 @@ Optionally you can add your custom Next.js configuration as a parameter
 // next.config.js
 const withAwesomeTypescript = require("next-awesome-typescript");
 module.exports = withAwesomeTypescript({
-  webpack(config, options) {
-    // you can optionally add custom Next.js configuration here.
-    return config
-  },
   awesomeTypescriptOptions: {
     useCheckerPlugin: true,
     loaderOptions: {
       transpileOnly: false,
-  }}
+    },
+  },
+  webpack(config, options) {
+    // you can optionally add custom Next.js webpack configuration here.
+    return config;
+  },
 });
 ```
 
-Probably You are not only going to use typescript plugin. In a multi plugin scenario.(In this example with next-css)
+Probably You are not only going to use typescript plugin. In a multi plugin scenario. (In this example with next-css)
 
 ```js
 // next.config.js
-const awesomeTypescriptOptions: {
-  useCheckerPlugin: true,
-  loaderOptions: {
-    transpileOnly: false,
-}}
-
-module.exports = withAwesomeTypescript(withCSS({
-  cssModules: true,
-  cssLoaderOptions: {
-    importLoaders: 1,
-  },
-  awesomeTypescriptOptions
-}));
+module.exports = withAwesomeTypescript(
+  withCSS({
+    cssModules: true,
+    cssLoaderOptions: {
+      importLoaders: 1,
+    },
+    awesomeTypescriptOptions: {
+      useCheckerPlugin: true,
+      loaderOptions: {
+        transpileOnly: false,
+      },
+    },
+  })
+);
 ```
