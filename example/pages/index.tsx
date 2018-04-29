@@ -1,5 +1,4 @@
-import * as React from 'react'
+import * as React from "react";
+import App from "../components/App";
 
-const App = () => <div>Welcome to Next.js!</div>
-
-export default App
+export default App;
