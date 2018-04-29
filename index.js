@@ -1,7 +1,7 @@
 const { CheckerPlugin } = require("awesome-typescript-loader");
 const path = require("path");
 
-module.exports = (awesomeTypescriptOptions = {}, nextConfig = {}) => {
+module.exports = (nextConfig = {}) => {
   if (!nextConfig.pageExtensions) {
     nextConfig.pageExtensions = ["jsx", "js"];
   }
@@ -23,7 +23,8 @@ module.exports = (awesomeTypescriptOptions = {}, nextConfig = {}) => {
       }
 
       const { dir, defaultLoaders, dev, isServer } = options;
-      const { useCheckerPlugin, loaderOptions } = awesomeTypescriptOptions;
+      const { useCheckerPlugin, loaderOptions } =
+        nextConfig.awesomeTypescriptOptions || {};
 
       // cacheDirectory option is unavailable in case of useBabel option
       // use useCache option of awesome-typescript-loader instead
@@ -39,7 +40,7 @@ module.exports = (awesomeTypescriptOptions = {}, nextConfig = {}) => {
           loader: "hot-self-accept-loader",
           include: [path.join(dir, "pages")],
           options: {
-            extensions: /\.(ts|tsx)$/,
+            extensions: /\.tsx?$/,
           },
         });
       }

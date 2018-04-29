@@ -1,14 +1,19 @@
 {
   "name": "next-awesome-typescript",
   "version": "0.2.2",
-  "description":
-    "Plugin for Next.js v5 to use typescript with awesome-typescript-loader",
+  "description": "Plugin for Next.js v5 to use typescript with awesome-typescript-loader",
   "main": "index.js",
   "scripts": {
-    "precommit": "lint-staged"
+    "prepublishOnly": "npm test",
+    "prepush": "npm test",
+    "precommit": "lint-staged",
+    "test": "tape test.js | faucet"
   },
   "lint-staged": {
-    "*.{js,json,css,md,ts,tsx}": ["prettier --write", "git add"]
+    "*.{js,css,md,ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "dependencies": {
     "awesome-typescript-loader": "^3.4.1"
@@ -20,17 +25,23 @@
     "type": "git",
     "url": "git+https://github.com/saitonakamura/next-awesome-typescript.git"
   },
-  "keywords": ["next", "typescript", "awesome-typescript-loader"],
-  "author":
-    "Mikhail Bashurov <michael.bashurov@gmail.com> (http://github.com/saitonakamura)",
+  "keywords": [
+    "next",
+    "typescript",
+    "awesome-typescript-loader"
+  ],
+  "author": "Mikhail Bashurov <michael.bashurov@gmail.com> (http://github.com/saitonakamura)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/saitonakamura/next-awesome-typescript/issues"
   },
   "homepage": "https://github.com/saitonakamura/next-awesome-typescript#readme",
   "devDependencies": {
+    "@zeit/next-source-maps": "0.0.2",
+    "faucet": "0.0.1",
     "husky": "^0.14.3",
     "lint-staged": "^6.1.1",
-    "prettier": "^1.10.2"
+    "prettier": "^1.10.2",
+    "tape": "^4.9.0"
   }
 }
