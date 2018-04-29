@@ -51,24 +51,49 @@ You can pass options to `awesome-typescript-loader` as a first argument
 // next.config.js
 const withAwesomeTypescript = require("next-awesome-typescript");
 
-const options = {
+const awesomeTypescriptOptions = {
   useCheckerPlugin: true,
   loaderOptions: {
     transpileOnly: false,
   },
 };
 
-module.exports = withAwesomeTypescript(options);
+module.exports = withAwesomeTypescript(awesomeTypescriptOptions);
 ```
 
-Optionally you can add your custom Next.js configuration as second parameter
+Optionally you can add your custom Next.js configuration as a parameter
 
 ```js
 // next.config.js
 const withAwesomeTypescript = require("next-awesome-typescript");
-const options = {};
-const nextConfiguration = {
-  webpack: () => ({}),
-};
-module.exports = withAwesomeTypescript(options, nextConfiguration);
+module.exports = withAwesomeTypescript({
+  webpack(config, options) {
+    // you can optionally add custom Next.js configuration here.
+    return config
+  },
+  awesomeTypescriptOptions: {
+    useCheckerPlugin: true,
+    loaderOptions: {
+      transpileOnly: false,
+  }}
+});
+```
+
+Probably You are not only going to use typescript plugin. In a multi plugin scenario.(In this example with next-css)
+
+```js
+// next.config.js
+const awesomeTypescriptOptions: {
+  useCheckerPlugin: true,
+  loaderOptions: {
+    transpileOnly: false,
+}}
+
+module.exports = withAwesomeTypescript(withCSS({
+  cssModules: true,
+  cssLoaderOptions: {
+    importLoaders: 1,
+  },
+  awesomeTypescriptOptions
+}));
 ```
