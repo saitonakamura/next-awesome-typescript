@@ -8,7 +8,7 @@ declare function withAwesomeTypescript(
   nextOptions:
     { awesomeTypescriptOptions?: withAwesomeTypescript.AwesomeTypescriptOptions }
     & NextConfiguration
-}): NextConfiguration;
+): NextConfiguration;
 
 declare namespace withAwesomeTypescript {
   interface AwesomeTypescriptOptions {
