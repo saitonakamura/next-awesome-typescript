@@ -4,9 +4,10 @@ type NextConfiguration = any;
 
 export = withAwesomeTypescript;
 
-declare function withAwesomeTypescript(nextOptions: {
-  awesomeTypescriptOptions?: withAwesomeTypescript.AwesomeTypescriptOptions,
-  webpack?(config: NextConfiguration, options: any): NextConfiguration
+declare function withAwesomeTypescript(
+  nextOptions:
+    { awesomeTypescriptOptions?: withAwesomeTypescript.AwesomeTypescriptOptions }
+    & NextConfiguration
 }): NextConfiguration;
 
 declare namespace withAwesomeTypescript {
