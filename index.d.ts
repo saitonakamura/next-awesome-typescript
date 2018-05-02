@@ -4,10 +4,10 @@ type NextConfiguration = any;
 
 export = withAwesomeTypescript;
 
-declare function withAwesomeTypescript(
-  awesomeTypescriptOptons?: withAwesomeTypescript.AwesomeTypescriptOptions,
-  nextConfiguration?: NextConfiguration
-): NextConfiguration;
+declare function withAwesomeTypescript(nextOptions: {
+  awesomeTypescriptOptions?: withAwesomeTypescript.AwesomeTypescriptOptions,
+  webpack?(config: NextConfiguration, options: any): NextConfiguration
+}): NextConfiguration;
 
 declare namespace withAwesomeTypescript {
   interface AwesomeTypescriptOptions {
