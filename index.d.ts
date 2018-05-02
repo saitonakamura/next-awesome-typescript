@@ -5,9 +5,9 @@ type NextConfiguration = any;
 export = withAwesomeTypescript;
 
 declare function withAwesomeTypescript(
-  nextOptions:
-    { awesomeTypescriptOptions?: withAwesomeTypescript.AwesomeTypescriptOptions }
-    & NextConfiguration
+  nextOptions: {
+    awesomeTypescriptOptions?: withAwesomeTypescript.AwesomeTypescriptOptions;
+  } & NextConfiguration
 ): NextConfiguration;
 
 declare namespace withAwesomeTypescript {
