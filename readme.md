@@ -8,6 +8,10 @@
 
 Use [Typescript](https://www.typescriptlang.org/) with [Next.js](https://github.com/zeit/next.js) with [Awesome typescipt loader](https://github.com/s-panferov/awesome-typescript-loader)
 
+## ⚠️ This plugin only compatible with Next.js v5️ ⚠️
+
+If you're using 6, it's better to just stick with [next-typescript](https://github.com/zeit/next-plugins/tree/master/packages/next-typescript), cause it uses Babel 7 with [preset-typescript](https://new.babeljs.io/docs/en/next/babel-preset-typescript.html). See [this comment](https://github.com/saitonakamura/next-awesome-typescript/issues/8#issuecomment-394487142) to look for more details.
+
 ## Installation
 
 ```
