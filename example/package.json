@@ -14,7 +14,7 @@
     "react-dom": "^16.2.0"
   },
   "devDependencies": {
-    "next-awesome-typescript": "^0.2.2",
+    "next-awesome-typescript": "^0.3.2",
     "typescript": "^2.8.3"
   }
 }
